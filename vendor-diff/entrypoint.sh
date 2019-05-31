@@ -1,20 +1,25 @@
 #!/bin/sh
 
+if [[ -z "$GITHUB_WORKSPACE" ]]; then
+	echo "Missing required env GITHUB_WORKSPACE"
+	exit 1
+fi
+
 set +e
 DIFF=$(sh -c "python /vendor-diff.py --path $GITHUB_WORKSPACE" 2>&1)
 SUCCESS=$?
-echo "$OUTPUT"
+echo "$DIFF"
 set -e
 
-if [ $SUCCESS -eq 0 ]; then
-    exit 0
+if [[ $SUCCESS -eq 0 ]]; then
+	exit 0
 fi
 
-if [ "$DIFF_ACTION_COMMENT" = "1" ] || [ "$DIFF_ACTION_COMMENT" = "false" ]; then
-    exit $SUCCESS
+if [[ "$GITHUB_EVENT_NAME" != "pull_request" ]]; then
+	exit $SUCCESS
 fi
 
-# Comment on PR with vendor diffs
+# Add comment on PR with vendor diff
 COMMENT="#### Vendor directory is not in sync with \`go.mod\`
 \`\`\`
 $DIFF
