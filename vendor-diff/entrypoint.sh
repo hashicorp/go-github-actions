@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set +e
-DIFF=$(sh -c "python vendor-diff.py --path $GITHUB_WORKSPACE" 2>&1)
+DIFF=$(sh -c "python /vendor-diff.py --path $GITHUB_WORKSPACE" 2>&1)
 SUCCESS=$?
 echo "$OUTPUT"
 set -e
