@@ -24,9 +24,9 @@ action "verify vendor" {
 
 ## Background
 
-Go commands do not use the vendor directory by default even if the vendor folder exists ([GH Issue](https://github.com/golang/go/issues/27227)). The `go.mod` file may be updated during local development with common go commands like `go build` and and `go test` or other go mod subcommands without the explicit `-mod vendor` flag. The vendor directory is not updated without running `go mod vendor` afterwards. This leaves room for dependencies to be updated or added in `go.mod` and not reflected in the vendor. If you're like me and forget this step, you'll be scratching your head as of why production is looking different than your local environment _(psst prod is build with an outdated vendor)_.
+Go commands do not use the vendor directory by default even if the vendor folder exists ([GH Issue](https://github.com/golang/go/issues/27227)) prior to version 1.14. The `go.mod` file may be updated during local development with common go commands like `go build` and and `go test` or other go mod subcommands without the explicit `-mod vendor` flag. The vendor directory is not updated without running `go mod vendor` afterwards. This leaves room for dependencies to be updated or added in `go.mod` and not reflected in the vendor. If you're like me and forget this step, you'll be scratching your head as of why production is looking different than your local environment _(psst prod is build with an outdated vendor)_.
 
-There is an open ticket targeted for Go 1.14 milestone to [verify vendored code](https://github.com/golang/go/issues/27348) with `go mod verify`, but until then the GH action hopes to close the gap.
+[Go 1.14](https://golang.org/doc/go1.14#go-command) now verifies the main module's `vendor/modules.txt` file is consistent with its `go.mod` file. This GitHub action is a stop gap for projects that use go mod and vendoring but is not quiet ready to update to Go 1.14.
 
 ## Logging Levels
 
