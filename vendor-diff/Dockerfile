@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM docker.mirror.hashicorp.services/python:3-alpine
 
 LABEL "maintainer"="Kim Ngo <kngo@hashicorp.com>"
 LABEL "repository"="https://github.com/hashicorp/go-github-actions"
