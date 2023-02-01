@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 FROM docker.mirror.hashicorp.services/python:3-alpine
 
 LABEL "maintainer"="Kim Ngo <kngo@hashicorp.com>"

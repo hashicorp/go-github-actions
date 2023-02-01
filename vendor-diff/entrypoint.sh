@@ -1,4 +1,7 @@
 #!/bin/sh
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 
 if [[ -z "$GITHUB_WORKSPACE" ]]; then
 	echo "Missing required env GITHUB_WORKSPACE"
