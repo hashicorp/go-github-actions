@@ -1,4 +1,6 @@
 #!/bin/sh
+# Copyright IBM Corp. 2019, 2026
+
 
 if [[ -z "$GITHUB_WORKSPACE" ]]; then
 	echo "Missing required env GITHUB_WORKSPACE"
