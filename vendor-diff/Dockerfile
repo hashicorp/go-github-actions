@@ -1,3 +1,5 @@
+# Copyright IBM Corp. 2019, 2026
+
 FROM docker.mirror.hashicorp.services/python:3-alpine
 
 LABEL "maintainer"="Kim Ngo <kngo@hashicorp.com>"
